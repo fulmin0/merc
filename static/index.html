@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Assistant" />
+  <title>Daily Assistant</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/icon.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="header-left">
+        <div class="avatar">DA</div>
+        <div class="header-info">
+          <span class="header-title">Daily Assistant</span>
+          <span class="header-status" id="headerStatus">Ready</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="chat-container" id="chatContainer">
+      <div class="messages" id="messages">
+        <div class="message assistant">
+          <div class="message-bubble">
+            Hi! I'm your daily assistant. I can help you manage tasks, take notes, and plan your day.<br><br>
+            Try: <em>"Add a task to review emails"</em> or <em>"What's on my list?"</em>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="quick-actions">
+      <button class="quick-btn" onclick="sendQuick('What tasks do I have pending?')">📋 My tasks</button>
+      <button class="quick-btn" onclick="sendQuick('Give me a brief on what I should focus on today')">⚡ Brief me</button>
+      <button class="quick-btn" onclick="sendQuick('Show my recent notes')">📝 Notes</button>
+    </div>
+
+    <footer class="input-area">
+      <div class="input-wrapper">
+        <textarea
+          id="messageInput"
+          placeholder="Message or use voice..."
+          rows="1"
+          onkeydown="handleKeydown(event)"
+          oninput="autoResize(this)"
+        ></textarea>
+        <button class="voice-btn" id="voiceBtn" onclick="toggleVoice()" title="Voice input">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/>
+            <path d="M19 10v1a7 7 0 0 1-14 0v-1h2v1a5 5 0 0 0 10 0v-1h2z"/>
+            <path d="M11 19.93V22h2v-2.07A8.001 8.001 0 0 0 20 12h-2a6 6 0 0 1-12 0H4a8.001 8.001 0 0 0 7 7.93z"/>
+          </svg>
+        </button>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Send">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
