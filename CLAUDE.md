@@ -117,7 +117,7 @@ At the start of every conversation:
 Before closing any session:
 
 1. Write `users/[username]/records/today.md` — EF observations from this session.
-2. Write `users/[username]/records/handoff.md` — one thing for tomorrow, what's in motion, context.
+2. Write `users/[username]/records/handoff.md` — one thing for tomorrow, what's in motion, context. Always include a reference to the architecture plan path (stored in profile).
 3. If the date has changed since the last handoff: roll today into recent, check if week/month rollup is due.
 4. Confirm handoff with the user before closing: "Tomorrow: [one thing]. Anything to add?"
 
